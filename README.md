@@ -9,7 +9,7 @@ no_DICE is mainly two things (both free and open-source):
 
 Equip an Arduino-compatible board of your choice with an I2C 128x64 display and a clickable rotary encoder, upload the provided sketch (modify it if necessary to better fit your setup), select an application to roll a die, flip a coin, or track your score with a click and a swing of the encoder. Optionally, add a battery and build an enclosure to take your no_DICE setup on the go! (_Psst! You can also upload your own sketches and customize an enclosure too!_)
 
-Wokwi simulation of no_DICE will be available soon (using Raspberry Pi Pico RP2040 board).
+Wokwi simulation of no_DICE will be available soon (using Raspberry Pi Pico RP2040 board). (Please note that in Wokwi simulation random number generator will be seeded with the same value with each reset of the board, so results will be repeated. In a real XIAO board random number generator is seeded with multiple samples of an analog pin as well as an internal temperature sensor of RP2040 to pick up fluctuations in random noise and battery voltage and temperature levels. Preserving settings after restart and software reset may also not work in simulator).
 
 * [For whom](#for-whom)
 * [Features](#features)
@@ -71,7 +71,7 @@ Prerequisites
 
 Use your favorite method to compile and flash provided [`no_DICE_gem-u8g2`](/src/no_DICE_gem-u8g2/) sketch to a board (e.g., Arduino IDE/CLI, PlatformIO, etc.). Tested on Arduino Uno R4 (Minima), Seeed XIAO RP2040, and Wemos D1 R32 ESP32 Dev boards.
 
-In case of RP2040-based boards, make sure to use [Arduino-Pico core](https://github.com/earlephilhower/arduino-pico) instead of default one shipped with Arduino (Wokwi simulation uses Arduino-Pico core as well). Refer to [documentation](https://github.com/earlephilhower/arduino-pico#installing-via-arduino-boards-manager) for installation process.
+In case of RP2040-based boards, make sure to use Earle Philhower's [Arduino-Pico core](https://github.com/earlephilhower/arduino-pico) instead of default one shipped with Arduino (Wokwi simulation uses Arduino-Pico core as well). Refer to [documentation](https://github.com/earlephilhower/arduino-pico#installing-via-arduino-boards-manager) for installation process.
 
 ### Hardware
 

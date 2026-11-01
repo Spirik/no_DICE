@@ -39,7 +39,8 @@
 
 //====================== PINS
 
-#define RANDOM_SEED_PIN A3  // Shared with Battery monitoring (that's probably not ideal, but A0, A1, A2 pins are already occupied with encoder input by default on XIAO board with Grove Shield)
+#define RANDOM_SEED_PIN A3  // Shared with Battery monitoring (that's probably not ideal, but A0, A1, A2 pins are already occupied with encoder input by default on XIAO board with Grove Shield);
+                            // also see comments in seedRnd() function of main sketch .ino file
 
 //====================== BATTERY
 

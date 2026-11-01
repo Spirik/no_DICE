@@ -262,11 +262,14 @@ void setup() {
   pinMode(batteryPin, INPUT);
   analogReadResolution(12);
 
-  // Seed random number generator
-  seedRnd();
-
   // Serial communication setup
   Serial.begin(115200);
+  /* while (!Serial) {
+    ; // Wait for serial port to connect (useful for debug)
+  } */
+
+  // Seed random number generator
+  seedRnd();
 
   // U8g2 library init
   u8g2.begin();
@@ -294,17 +297,31 @@ void setup() {
 
 void seedRnd() {
   // Not very good solution as Battery level is reletively stable...
-  // randomSeed(analogRead(RANDOM_SEED_PIN));
+  // unsigned long seed = analogRead(RANDOM_SEED_PIN);
 
   // ...trying multiple reads of lower bits (LSB) instead
   unsigned long seed = 0;
 
-  // Read an analog pin 32 times and shift the lowest bits into the seed
+  // Read an analog pin (and internal temperature sensor on RP2040) 32 times and shift the lowest bits into the seed.
+  // By default RANDOM_SEED_PIN points to a pin battery is connected to via voltage divider (A3). Not all RP2040 boards
+  // have A3 pin exposed (e.g. Raspberry Pi Pico RP2040), so mixing in an internal temperature sensor (available via analogReadTemp()
+  // function from Earle Philhower Arduino-Pico core) is probably a good idea
   for (int i = 0; i < 32; i++) {
     seed = seed | ((analogRead(RANDOM_SEED_PIN) & 0x01) << i);
+    #if defined(ARDUINO_ARCH_RP2040) || defined(ARDUINO_ARCH_MBED_RP2040) || defined(ARDUINO_ARCH_MBED_NANO)
+      if (i % 2 == 0) {
+        seed = seed | ((analogRead(RANDOM_SEED_PIN) & 0x01) << i);
+      } else {
+        seed = seed | (((int)(analogReadTemp() * 10000) & 0x01) << i);
+      }
+    #else
+      seed = seed | ((analogRead(RANDOM_SEED_PIN) & 0x01) << i);
+    #endif
     delayMicroseconds(10); // Delay to get different noise samples
   }
 
+  Serial.print(F("Seeding random with: "));
+  Serial.println(seed);
   randomSeed(seed);
 }
 
@@ -667,7 +684,6 @@ void enableBatteryMonitoringCallback() {
 
 void drawStatus() {
   if (settings.settingsBattery.enableMonitoring != 0) {
-    // drawBattery();
     battery.draw(false);  // Draw battery status w/o sending u8g2 buffer to screen (screen will be updated internally in GEM loop)
   }
 }
