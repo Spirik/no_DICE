@@ -22,7 +22,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#define NO_DICE_VER "1.0.0"
+#define NO_DICE_VER "1.0.1"
 
 //====================== STORAGE CONFIGURATION
 
