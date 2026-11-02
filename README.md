@@ -3,7 +3,7 @@
 
 ![no_DICE in enclosure with coin flip animation](/assets/images/hero-animation_150ms.gif)
 
-no_DICE is mainly two things (both free and open-source):
+no_DICE is mainly two things (both are free and open-source):
 * Arduino-based simulator of dice throws, coin flips, and a score counter (using [U8g2](https://github.com/olikraus/u8g2) and [GEM](https://github.com/Spirik/GEM) to draw the menu, and [KeyDetector](https://github.com/Spirik/KeyDetector) to hook up rotary encoder as an input device);
 * optional 3D-printed customizable enclosure designed to fit [Seeed Studio XIAO RP2040](https://wiki.seeedstudio.com/XIAO-RP2040/) board (with [Grove Shield for XIAO](https://wiki.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-embedded-battery-management-chip/) for power management), 3.7V LiPo battery (in 902030 or 902040 form-factor), 0.96" 128x64 monochrome OLED I2C display, and a rotary encoder (with integrated push-button).
 
