@@ -29,9 +29,9 @@ Equip an Arduino-compatible board of your choice with an I2C 128x64 display and 
 Online simulator
 ----------------
 
-Wokwi simulation of no_DICE will be available soon (using the Raspberry Pi Pico RP2040 board).
+Wokwi simulation of no_DICE (using the Raspberry Pi Pico RP2040 board) is available [here](https://wokwi.com/projects/479570450435807233).
 
-![Wokwi simulator](/assets/images/simulator.png)
+[![Wokwi simulator](/assets/images/simulator.png)](https://wokwi.com/projects/479570450435807233)
 
 Please note that in the Wokwi simulation the random number generator will be seeded with the same value on each reset of the board, so results will be repeated. In a real RP2040-based board, the random number generator is seeded with multiple samples of the lowest bits of an analog pin as well as an internal temperature sensor of the RP2040 to pick up fluctuations in random noise, battery voltage, and temperature levels.
 
@@ -84,7 +84,7 @@ Prerequisites
 
 Use your favorite method to compile and flash provided [`no_DICE_gem-u8g2`](/src/no_DICE_gem-u8g2/) sketch to a board (e.g., Arduino IDE/CLI, PlatformIO, etc.). Tested on Arduino Uno R4 (Minima), Seeed XIAO RP2040, and Wemos D1 R32 ESP32 Dev boards.
 
-In case of RP2040-based boards, make sure to use Earle Philhower's [Arduino-Pico core](https://github.com/earlephilhower/arduino-pico) instead of default one shipped with Arduino (Wokwi simulation uses Arduino-Pico core as well). Refer to [documentation](https://github.com/earlephilhower/arduino-pico#installing-via-arduino-boards-manager) for installation process.
+In case of RP2040-based boards, make sure to use Earle Philhower's [Arduino-Pico core](https://github.com/earlephilhower/arduino-pico) instead of default one shipped with Arduino ([Wokwi simulation](https://wokwi.com/projects/479570450435807233) uses Arduino-Pico core as well). Refer to [documentation](https://github.com/earlephilhower/arduino-pico#installing-via-arduino-boards-manager) for installation process.
 
 ### Hardware
 
