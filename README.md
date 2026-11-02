@@ -55,7 +55,7 @@ Features
 
 ![Dice, Coin, Life screenshots](/assets/images/features.png)
 
-* __Dice throwing:__ choose from a wide variety of dice: `D4`, `D6`, `D8`, `D10`, `D12`, `D20`, `D100`. Set default preferred dice in settings.
+* __Dice throwing:__ choose from a wide variety of dice: `D4`, `D6`, `D8`, `D10`, `D12`, `D20`, `D100`. Set default preferred die in settings.
 * __Coin flipping:__ not really much to say about it, just press a button and coin will be flipped. With glorious sprite animation. Result of a coin toss is determined at a key press, but coin itself flips random amount of times (2-4) so that it is harder to predict an outcome by seeing the initial frame of animation.
 * __Life tracking:__ not just _Life_, really, but points in general. Turn the knob and number will increase (or decrease) at your will. Press the knob to reset the number to its initial starting value (adjustable in settings). Any value you desire is fine (as long as your desire falls within the range of -999 to 9999).
 * __Localization:__ English, Russian, German, and French languages are available to pick from in settings.

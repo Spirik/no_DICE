@@ -165,12 +165,12 @@ GEMSpinner lifeStartingValueSpinner(lifeStartingValueSpinnerBoundaries, GEM_LOOP
 const char* menuItemLifeStartingValueTitle[] = {"Starting life:", "Старт. жизнь:", "Startpunkte:", "Pts. de départ:"};
 GEMItem menuItemLifeStartingValue(menuItemLifeStartingValueTitle[settings.settingsGeneral.language], settings.settingsLife.startingValue, lifeStartingValueSpinner, saveSettings);
 
-// Create menu item for language option select with applyLanguage() callback function
+// Create menu item for language option select with applyLanguageAndSave() callback function
 SelectOptionByte selectLangOptions[] = {{"EN", NO_DICE_LANG_EN}, {"RU", NO_DICE_LANG_RU}, {"DE", NO_DICE_LANG_DE}, {"FR", NO_DICE_LANG_FR}};
 GEMSelect selectLanguage(sizeof(selectLangOptions)/sizeof(SelectOptionByte), selectLangOptions);
-void applyLanguage(); // Forward declaration
+void applyLanguageAndSave(); // Forward declaration
 const char* menuItemLanguageTitle[] = {"Language:", "Язык:", "Sprache:", "Langue:"};
-GEMItem menuItemLanguage(menuItemLanguageTitle[settings.settingsGeneral.language], settings.settingsGeneral.language, selectLanguage, applyLanguage);
+GEMItem menuItemLanguage(menuItemLanguageTitle[settings.settingsGeneral.language], settings.settingsGeneral.language, selectLanguage, applyLanguageAndSave);
 
 // Create menu item for menu pointer option select with applyMenuPointer() callback function
 SelectOptionByte selectMenuPointerOptions[][2] = {
@@ -530,7 +530,10 @@ void applyLanguage() {
   // Print language to Serial
   Serial.print(F("Language applied: "));
   Serial.println(selectLanguage.getSelectedOptionName(&settings.settingsGeneral.language));
+}
 
+void applyLanguageAndSave() {
+  applyLanguage();
   saveSettings();
 }
 
