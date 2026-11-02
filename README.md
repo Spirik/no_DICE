@@ -247,7 +247,7 @@ Battery
 
 ### Charging
 
-Grove Shield charges battery via USB-C port of attached XIAO board whenever cable is connected. It is equipped with on-board charging status LED indicator (there is strategically placed hole in side panel of the enclosure to make LED visible). If power is connected when power switch is in Off position, charging LED blinks constantly, regardless of charge level. If power is connected when power switch is in On position, charging LED will be lit on when charging is in progress and will be turned off when battery is charged.
+Grove Shield charges battery via USB-C port of attached XIAO board whenever cable is connected. It is equipped with on-board charging status LED indicator (there is strategically placed hole in side panel of the enclosure to make LED visible). If power is connected when power switch is in Off position, charging LED blinks constantly, regardless of charge level. If power is connected when power switch is in On position, charging LED will be lit on when charging is in progress and will be turned off when battery is charged. I recommend charging with power switch in On position to easily keep track of a progress.
 
 ### Monitoring and calibration
 
