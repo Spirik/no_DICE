@@ -65,6 +65,12 @@
 // const byte buttonPin = 17;
 // const byte batteryPin = 34;
 
+// Raspberry Pi Pico RP2040 (Wokwi simulator)
+// const byte channelA = 20;
+// const byte channelB = 21;
+// const byte buttonPin = 22;
+// const byte batteryPin = A0;
+
 // XIAO RP2040 with Grove Shield
 const byte channelA = 26;   // A0
 const byte channelB = 27;   // A1
@@ -303,11 +309,10 @@ void seedRnd() {
   unsigned long seed = 0;
 
   // Read an analog pin (and internal temperature sensor on RP2040) 32 times and shift the lowest bits into the seed.
-  // By default RANDOM_SEED_PIN points to a pin battery is connected to via voltage divider (A3). Not all RP2040 boards
-  // have A3 pin exposed (e.g. Raspberry Pi Pico RP2040), so mixing in an internal temperature sensor (available via analogReadTemp()
+  // By default RANDOM_SEED_PIN points to a pin battery is connected to via voltage divider (A3 on XIAO RP2040 board). Not all RP2040 boards
+  // have A3 pin exposed (e.g. Raspberry Pi Pico RP2040), so mixing in a value from an internal temperature sensor (available via analogReadTemp()
   // function from Earle Philhower Arduino-Pico core) is probably a good idea
   for (int i = 0; i < 32; i++) {
-    seed = seed | ((analogRead(RANDOM_SEED_PIN) & 0x01) << i);
     #if defined(ARDUINO_ARCH_RP2040) || defined(ARDUINO_ARCH_MBED_RP2040) || defined(ARDUINO_ARCH_MBED_NANO)
       if (i % 2 == 0) {
         seed = seed | ((analogRead(RANDOM_SEED_PIN) & 0x01) << i);

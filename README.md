@@ -9,8 +9,7 @@ no_DICE is mainly two things (both free and open-source):
 
 Equip an Arduino-compatible board of your choice with an I2C 128x64 display and a clickable rotary encoder, upload the provided sketch (modify it if necessary to better fit your setup), select an application to roll a die, flip a coin, or track your score with a click and a swing of the encoder. Optionally, add a battery and build an enclosure to take your no_DICE setup on the go! (_Psst! You can also upload your own sketches and customize an enclosure too!_)
 
-Wokwi simulation of no_DICE will be available soon (using Raspberry Pi Pico RP2040 board). (Please note that in Wokwi simulation random number generator will be seeded with the same value with each reset of the board, so results will be repeated. In a real XIAO board random number generator is seeded with multiple samples of an analog pin as well as an internal temperature sensor of RP2040 to pick up fluctuations in random noise and battery voltage and temperature levels. Preserving settings after restart and software reset may also not work in simulator).
-
+* [Online simulator](#online-simulator)
 * [For whom](#for-whom)
 * [Features](#features)
 * [Controls](#controls)
@@ -26,6 +25,17 @@ Wokwi simulation of no_DICE will be available soon (using Raspberry Pi Pico RP20
     * [Charging](#charging)
     * [Monitoring and calibration](#monitoring-and-calibration)
 * [Disclaimer and a License](#disclaimer-and-a-license)
+
+Online simulator
+----------------
+
+Wokwi simulation of no_DICE will be available soon (using the Raspberry Pi Pico RP2040 board).
+
+![Wokwi simulator](/assets/images/simulator.png)
+
+Please note that in the Wokwi simulation the random number generator will be seeded with the same value on each reset of the board, so results will be repeated. In a real RP2040-based board, the random number generator is seeded with multiple samples of the lowest bits of an analog pin as well as an internal temperature sensor of the RP2040 to pick up fluctuations in random noise, battery voltage, and temperature levels.
+
+Preserving settings after a restart or software reset may also not work in the simulator.
 
 For whom
 --------
@@ -43,11 +53,14 @@ Feel free to share your experience: whether you implemented the code, enclosure 
 Features
 --------
 
+![Dice, Coin, Life screenshots](/assets/images/features.png)
+
 * __Dice throwing:__ choose from a wide variety of dice: `D4`, `D6`, `D8`, `D10`, `D12`, `D20`, `D100`. Set default preferred dice in settings.
 * __Coin flipping:__ not really much to say about it, just press a button and coin will be flipped. With glorious sprite animation. Result of a coin toss is determined at a key press, but coin itself flips random amount of times (2-4) so that it is harder to predict an outcome by seeing the initial frame of animation.
 * __Life tracking:__ not just _Life_, really, but points in general. Turn the knob and number will increase (or decrease) at your will. Press the knob to reset the number to its initial starting value (adjustable in settings). Any value you desire is fine (as long as your desire falls within the range of -999 to 9999).
 * __Localization:__ English, Russian, German, and French languages are available to pick from in settings.
 * __Battery monitoring:__ can be enabled in settings. Requires additional hardware modification (in the form of a voltage divider comprised of two identical resistors soldered to Grove Shield).
+* __Random number generator:__ is seeded with multiple samples of the lowest bits of an analog pin as well as an internal temperature sensor of the RP2040 (on compatible boards) to pick up fluctuations in random noise, battery voltage, and temperature levels.
 * __Enclosure__: you can 3D-print it: STL files are provided. You can modify it too: .f3d (Fusion) and STEP files are provided as well.
 
 Controls

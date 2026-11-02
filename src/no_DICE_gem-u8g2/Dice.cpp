@@ -90,7 +90,7 @@ void Dice::waitForInteraction(byte key) {
 
 void Dice::printDiceVariant() {
   _u8g2.setFont(GEM_FONT_BIG);
-  _u8g2.drawStr(_u8g2.getDisplayWidth() - _u8g2.getStrWidth(_selectDiceSidesOptions[_selectedOptionNum].name), _u8g2.getDisplayHeight() - 8, _selectDiceSidesOptions[_selectedOptionNum].name);
+  _u8g2.drawStr(_u8g2.getDisplayWidth() - _u8g2.getStrWidth(_selectDiceSidesOptions[_selectedOptionNum].name) - 2, _u8g2.getDisplayHeight() - 8, _selectDiceSidesOptions[_selectedOptionNum].name);
 }
 
 void Dice::resetDice() {

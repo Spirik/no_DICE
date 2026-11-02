@@ -39,8 +39,8 @@
 
 //====================== PINS
 
-#define RANDOM_SEED_PIN A3  // Shared with Battery monitoring (that's probably not ideal, but A0, A1, A2 pins are already occupied with encoder input by default on XIAO board with Grove Shield);
-                            // also see comments in seedRnd() function of main sketch .ino file
+#define RANDOM_SEED_PIN A3  // On XIAO RP2040 board with Grove Shield pin is shared with Battery monitoring (that's probably not ideal, but A0, A1, A2 pins are already occupied with encoder input);
+                            // on Raspberry Pi Pico RP2040 board in Wokwi simulator is set to A0; also see comments in seedRnd() function of main sketch .ino file
 
 //====================== BATTERY
 
