@@ -53,7 +53,7 @@ Feel free to share your experience: whether you implemented the code, enclosure 
 Features
 --------
 
-![Dice, Coin, Life screenshots](/assets/images/features.png)
+![Dice, Coin, Life screenshots](/assets/images/features-x9.png)
 
 * __Dice throwing:__ choose from a wide variety of dice: `D4`, `D6`, `D8`, `D10`, `D12`, `D20`, `D100`. Set default preferred die in settings.
 * __Coin flipping:__ not really much to say about it, just press a button and coin will be flipped. With glorious sprite animation. Result of a coin toss is determined at a key press, but coin itself flips random amount of times (2-4) so that it is harder to predict an outcome by seeing the initial frame of animation.
@@ -113,7 +113,7 @@ Enclosure
 
 Optional enclosure can be 3D-printed using provided STL files. Autodesk Fusion project file (.f3d) and STEP files are provided as well.
 
-Parts designed with no overhangs (except for screw holes on the bottom of the main frame).
+Parts designed with no overhangs (except for screw holes on the side of the main frame).
 
 Tolerances are not very precise and adjusted to produce decent results on Snapmaker 3-in-1 Original printer with 0.2mm (frame, top cover, spacer) and 0.1mm (side panels; switch skirt was printed at 0.05mm) layer height using PLA filament. Your mileage may vary, so a bit of sanding (or even clipping off some latches in case of tight fit) may be required.
 
@@ -147,9 +147,9 @@ And this is the version with a rotary encoder module on a PCB:
 1. Decide whether you want to use shortened modification of Grove Shield (with clipped off part with additional ports) or unmodified full version. Act accordingly to clip off part of a board (if you decided to).  
 ![Full and shortened Grove Shield variants](/assets/images/electronics-step-01.jpg)
 2.
-    a) If you don't need battery level monitoring, solder male PH 2.0mm 2-pin header to battery in contacts on a back side of a Grove shield.  
+    a) If you don't need battery level monitoring, solder male PH 2.0mm 2-pin header to battery in contacts on a back side of a Grove Shield.  
     ![Battery connector soldered to a back of a Grove Shield](/assets/images/electronics-step-02a.jpg)  
-    b) If you want to use battery monitoring, assemble voltage divider first, comprised of a pair of identical resistors (e.g. pair of 100K resistors), soldered to the back of a Grove Shield as shown below. Solder male PH 2.0mm 2-pin header to battery in contacts of a Grove shield as well.  
+    b) If you want to use battery monitoring, assemble voltage divider first, comprised of a pair of identical resistors (e.g. pair of 100K resistors), soldered to the back of a Grove Shield as shown below. Solder male PH 2.0mm 2-pin header to battery in contacts of a Grove Shield as well.  
     ![Voltage divider soldered to a back of a Grove Shield with battery connector](/assets/images/electronics-step-02b.jpg)
 3. Solder pin headers to XIAO RP2040 board (if they're not installed already).  
 ![XIAO boards w and w/o pin headers soldered](/assets/images/electronics-step-03.jpg)
@@ -255,7 +255,7 @@ If you choose to implement a voltage divider for battery voltage measurement, it
 
 ![Battery settings page with enabled monitoring](/assets/images/battery-monitoring.jpg)
 
-Conversion of battery voltage reading to battery charge level is quite rough and imprecise. To make it slightly better it is recommended to calibrate it for your battery specifically. To do so, charge battery completely with power switch in On position, until charging LED goes out. Then disconnect power and note the Voltage reading in Battery Settings menu (reading is updated every 10s, so wait a little after disconnecting the cable to get more relevant value). This is your fully charged voltage level. Then wait until device starts spontaneously rebooting (it can take anywhere from 6 to 9 hours or even longer depending on battery capacity). Note the Voltage reading in Battery Settings menu again. This is your discharged battery level. Open `constants.h` file in source code and adjust `BATTERY_MAX` and `BATTERY_MIN` values accordingly. Reupload modified sketch to your board.
+Conversion of battery voltage reading to battery charge level is quite rough and imprecise. To make it slightly better it is recommended to calibrate it for your battery specifically. To do so, charge battery completely with power switch in On position, until charging LED goes out. Then disconnect power and note the Voltage reading in Battery Settings menu (reading is updated every 10s, so wait a little after disconnecting the cable to get more relevant value). This is your fully charged voltage level. Then wait until device starts spontaneously rebooting (it can take up to around 7-8 hours on 500mAh battery or up to around 15 hours on 1000mAh one). Note the Voltage reading in Battery Settings menu again. This is your discharged battery level. Open `constants.h` file in source code and adjust `BATTERY_MAX` and `BATTERY_MIN` values accordingly. Reupload modified sketch to your board.
 
 It is possible that you would need multiple passes of this process to achieve better precision. However it won't be perfect in any case.
 
