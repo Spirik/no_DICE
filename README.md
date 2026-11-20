@@ -48,7 +48,7 @@ You can use no_DICE firmware with different hardware and totally different enclo
 
 And if you are interested in learning more about [GEM](https://github.com/Spirik/GEM) (a.k.a. _Good Enough Menu_) and how to use it in your own project, this can be a great source of inspiration and insights on possible implementation of different features (menu hierarchy, callbacks, custom icons, context, localization, etc.).
 
-Feel free to share your experience: whether you implemented the code, enclosure or the whole build.
+Feel free to share your experience: whether you implemented the code, enclosure, or the whole build.
 
 Features
 --------
@@ -84,7 +84,7 @@ Prerequisites
 
 Use your favorite method to compile and flash provided [`no_DICE_gem-u8g2`](/src/no_DICE_gem-u8g2/) sketch to a board (e.g., Arduino IDE/CLI, PlatformIO, etc.). Tested on Arduino Uno R4 (Minima), Seeed XIAO RP2040, and Wemos D1 R32 ESP32 Dev boards.
 
-In case of RP2040-based boards, make sure to use Earle Philhower's [Arduino-Pico core](https://github.com/earlephilhower/arduino-pico) instead of default one shipped with Arduino ([Wokwi simulation](https://wokwi.com/projects/479570450435807233) uses Arduino-Pico core as well). Refer to [documentation](https://github.com/earlephilhower/arduino-pico#installing-via-arduino-boards-manager) for installation process.
+In case of RP2040-based boards, make sure to use Earle Philhower's [Arduino-Pico core](https://github.com/earlephilhower/arduino-pico) instead of the default one shipped with Arduino ([Wokwi simulation](https://wokwi.com/projects/479570450435807233) uses Arduino-Pico core as well). Refer to [documentation](https://github.com/earlephilhower/arduino-pico#installing-via-arduino-boards-manager) for the installation process.
 
 ### Hardware
 
@@ -136,7 +136,7 @@ Assembly
 
 ### Electronics
 
-This is how the whole setup looks, with voltage divider (for battery monitoring) and discrete rotary encoder:
+This is how the whole setup looks, with a voltage divider (for battery monitoring) and a discrete rotary encoder:
 
 ![Full setup with discrete rotary encoder](/assets/images/no_dice_schematic_encoder-discrete.png)
 
@@ -144,22 +144,22 @@ And this is the version with a rotary encoder module on a PCB:
 
 ![Full setup with rotary encoder module on PCB](/assets/images/no_dice_schematic_encoder-pcb.png)
 
-1. Decide whether you want to use shortened modification of Grove Shield (with clipped off part with additional ports) or unmodified full version. Act accordingly to clip off part of a board (if you decided to).  
+1. Decide whether you want to use the shortened modification of the Grove Shield (with clipped off part with additional ports) or the unmodified full version. Act accordingly to clip off part of the board (if you decided to).  
 ![Full and shortened Grove Shield variants](/assets/images/electronics-step-01.jpg)
 2.
-    a) If you don't need battery level monitoring, solder male PH 2.0mm 2-pin header to battery in contacts on a back side of a Grove Shield.  
+    a) If you don't need battery level monitoring, solder a male PH 2.0mm 2-pin header to the battery-in contacts on the back side of the Grove Shield.  
     ![Battery connector soldered to a back of a Grove Shield](/assets/images/electronics-step-02a.jpg)  
-    b) If you want to use battery monitoring, assemble voltage divider first, comprised of a pair of identical resistors (e.g. pair of 100K resistors), soldered to the back of a Grove Shield as shown below. Solder male PH 2.0mm 2-pin header to battery in contacts of a Grove Shield as well.  
+    b) If you want to use battery monitoring, assemble a voltage divider first, comprised of a pair of identical resistors (e.g., a pair of 100K resistors), soldered to the back of the Grove Shield as shown below. Solder a male PH 2.0mm 2-pin header to the battery-in contacts of the Grove Shield as well.  
     ![Voltage divider soldered to a back of a Grove Shield with battery connector](/assets/images/electronics-step-02b.jpg)
-3. Solder pin headers to XIAO RP2040 board (if they're not installed already).  
+3. Solder pin headers to the XIAO RP2040 board (if they're not installed already).  
 ![XIAO boards w and w/o pin headers soldered](/assets/images/electronics-step-03.jpg)
-4. Attach XIAO RP2040 board to a Grove Shield.  
+4. Attach the XIAO RP2040 board to the Grove Shield.  
 ![XIAO board attached to a Grove Shield](/assets/images/electronics-step-04.jpg)
-5. Remove pin headers from display board.  
+5. Remove the pin headers from the display board.  
 ![Display w/o pin headers](/assets/images/electronics-step-05.jpg)
-6. Grab a Grove cable and cut it roughly to 38mm-40mm in length (connector included). Strip wires on the cut end of a cable.
-![Cut grove cable for display connection](/assets/images/electronics-step-06.jpg)
-7. Connector end of a cable will go into I2C slot of a Grove Shield, with its pinout silkscreened onto the board. Study it carefully and solder each wire of a cable to corresponding pin holes of a display board.  
+6. Grab a Grove cable and cut it roughly to 38mm-40mm in length (connector included). Strip the wires on the cut end of the cable.
+![Cut Grove cable for display connection](/assets/images/electronics-step-06.jpg)
+7. The connector end of the cable will go into the I2C slot of the Grove Shield, with its pinout silkscreened onto the board. Study it carefully and solder each wire of the cable to the corresponding pin holes of the display board.  
     | Grove Shield Pin | Display Pin | Wire        |
     |------------------|------------ |------------ |
     | GND              | GND         | ⚫️ Black     |
@@ -168,13 +168,13 @@ And this is the version with a rotary encoder module on a PCB:
     | SCL\|5           | SCL         | 🟡 Yellow    |
     
     ![Display w/ cable attached](/assets/images/electronics-step-07.jpg)
-8. Prepare two more pieces of grove cable cut to around 38-40mm in length (connector included).  
-    a) If you are planning to use discrete rotary encoder part, detach (unclip from a connector side or cut off flush) red and yellow wire from one of the cables completely. Remove red wire from the second cable. Strip wires on the cut end of the cables.  
-    ![Cut grove cables for discrete rotary encoder connection](/assets/images/electronics-step-08a.jpg)  
-    b) If you are planning to use rotary encoder module on PCB, detach (unclip from a connector side or cut off flush) black, red, and yellow wires from one of the cables completely. Leave all wires of the second cable in place. Strip wires on the cut end of the cables.  
-    ![Cut grove cables for rotary encoder module on PCB connection](/assets/images/electronics-step-08b.jpg)
-9. Connector ends of these cables will go into two slots of a Grove Shield.  
-    a) In case of a discrete rotary encoder part, solder prepared cables according to table (actual naming scheme of the encoder pins may differ from model to model):  
+8. Prepare two more pieces of Grove cable cut to around 38-40mm in length (connector included).  
+    a) If you are planning to use the discrete rotary encoder part, detach (unclip from the connector side or cut off flush) the red and yellow wires from one of the cables completely. Remove the red wire from the second cable. Strip the wires on the cut end of the cables.  
+    ![Cut Grove cables for discrete rotary encoder connection](/assets/images/electronics-step-08a.jpg)  
+    b) If you are planning to use the rotary encoder module on a PCB, detach (unclip from the connector side or cut off flush) the black, red, and yellow wires from one of the cables completely. Leave all wires of the second cable in place. Strip the wires on the cut end of the cables.  
+    ![Cut Grove cables for rotary encoder module on PCB connection](/assets/images/electronics-step-08b.jpg)
+9. The connector ends of these cables will go into two slots of the Grove Shield.  
+    a) In the case of the discrete rotary encoder part, solder the prepared cables according to the table (the actual naming scheme of the encoder pins may differ from model to model):  
     | Grove Shield Pin | Encoder Pin | Wire                  |
     |------------------|------------ |-----------------------|
     | GND              | C           | ⚫️ Cable 1 - Black     |
@@ -184,7 +184,7 @@ And this is the version with a rotary encoder module on a PCB:
     | 2                | E           | ⚪️ Cable 2 - White     |
 
     ![Discrete rotary encoder w/ cables soldered](/assets/images/electronics-step-09a.jpg)  
-    b) In case of a rotary encoder module on PCB, solder prepared cables according to table (actual naming scheme of the encoder pins may differ from model to model):  
+    b) In the case of the rotary encoder module on a PCB, solder the prepared cables according to the table (the actual naming scheme of the encoder pins may differ from model to model):  
     | Grove Shield Pin | Encoder Pin | Wire                  |
     |------------------|------------ |-----------------------|
     | GND              | GND         | ⚫️ Cable 1 - Black     |
@@ -196,8 +196,8 @@ And this is the version with a rotary encoder module on a PCB:
     ![Rotary encoder module on PCB w/ cables soldered](/assets/images/electronics-step-09b.jpg)
 10. Connect the display and encoder to the corresponding connectors of the Grove Shield.  
 ![Display and encoder attached to a Grove Shield](/assets/images/electronics-step-10.jpg)
-11. At this point connect the whole assembly to a computer using USB-C port on XIAO board. Upload sketch and check that everything is working as expected. Adjust connection of encoder pins (or their designation in sketch) if necessary.
-12. You may also want to check whether power supply via battery is working properly. For that, disconnect USB-C cable from a board to power it off. Then connect battery to a male PH 2.0mm 2-pin header soldered to a Grove Shield in step 2. If your battery didn't come with presoldered female connector, solder it to the battery leads. Mind the polarity of the wires. Use multimeter to check voltage if unsure. Refer to silkscreen markings of battery-in contacts on a back side of a Grove Shield.  
+11. At this point, connect the whole assembly to a computer using the USB-C port on the XIAO board. Upload the sketch and check that everything is working as expected. Adjust the connection of the encoder pins (or their designation in the sketch) if necessary.
+12. You may also want to check whether the power supply via the battery is working properly. For that, disconnect the USB-C cable from the board to power it off. Then connect the battery to the male PH 2.0mm 2-pin header soldered to the Grove Shield in step 2. If your battery didn't come with a presoldered female connector, solder it to the battery leads. Mind the polarity of the wires. Use a multimeter to check the voltage if unsure. Refer to the silkscreen markings of the battery-in contacts on the back side of the Grove Shield.  
 ![Powered on assembly](/assets/images/electronics-step-12.jpg)
 
 ### Enclosure assembly
@@ -215,31 +215,31 @@ Source project files with the whole list of parts are also [available](/hardware
 * STEP file (exported from Fusion project)
 * PDF file (selection of parts printed from Fusion drawing)
 
-Finish 3D-printed parts if necessary (clean-up, sand, paint, etc.). Optionally prepare protective acrylic glass piece for the top cover and set of screws.
+Finish the 3D-printed parts if necessary (clean-up, sand, paint, etc.). Optionally, prepare a protective acrylic glass piece for the top cover and a set of screws.
 
 ![All parts necessary for enclosure assembly](/assets/images/enclosure-parts.jpg)
 
-1. Apply decor to top cover (if desired). Insert protective acrylic glass into the rectangular recess in a top cover (if desired). Fit should be tight, otherwise secure with glue. If glass doesn't fit, adjust size of the glass and/or the recess with sanding and/or filing.  
+1. Apply decor to the top cover (if desired). Insert the protective acrylic glass into the rectangular recess in the top cover (if desired). The fit should be tight; otherwise, secure it with glue. If the glass doesn't fit, adjust the size of the glass and/or the recess with sanding and/or filing.  
 ![Unfinished and finished top cover variants](/assets/images/enclosure-step-01.jpg)
-2. Attach switch skirt to a power switch handle of a Grove Shield. Make sure that switch moves freely with skirt attached.  
+2. Attach the switch skirt to the power switch handle of the Grove Shield. Make sure that the switch moves freely with the skirt attached.  
 ![Switch skirt attached to a power switch](/assets/images/enclosure-step-02.jpg)
-3. Pull shaft of the encoder through the circular hole in a top cover. Secure with nut (but not tighten all the way just yet).  
+3. Pull the shaft of the encoder through the circular hole in the top cover. Secure it with a nut (but don't tighten it all the way just yet).  
 ![Encoder mounted to the top cover](/assets/images/enclosure-step-03.jpg)
-4. Align top cover with the top slot of the frame. Then slowly slide the whole assembly into main frame of an enclosure. Channels in the inner side of the frame will guide assembly inside. Mind the ribbon connector of the display assembly (which connects PCB to the screen) - make sure not to damage it while sliding into designated slots of the frame. Align display with the window in top cover. That may be tricky. Use stick to gently push assembly inside from the back side. Push battery all the way inside of the bottom compartment. Tighten rotary encoder.  
+4. Align the top cover with the top slot of the frame. Then slowly slide the whole assembly into the main frame of the enclosure. Channels in the inner side of the frame will guide the assembly inside. Mind the ribbon connector of the display assembly (which connects the PCB to the screen) - make sure not to damage it while sliding into the designated slots of the frame. Align the display with the window in the top cover. That may be tricky. Use a stick to gently push the assembly inside from the back side. Push the battery all the way inside the bottom compartment. Tighten the rotary encoder.  
 ![Stages of sliding assembly inside the enclosure](/assets/images/enclosure-step-04-1.jpg)  
 ![Stages of sliding assembly inside the enclosure](/assets/images/enclosure-step-04-2.jpg)  
 ![Stages of sliding assembly inside the enclosure](/assets/images/enclosure-step-04-3.jpg)  
 ![Stages of sliding assembly inside the enclosure](/assets/images/enclosure-step-04-4.jpg)  
 ![Stages of sliding assembly inside the enclosure](/assets/images/enclosure-step-04-5.jpg)  
 ![Stages of sliding assembly inside the enclosure](/assets/images/enclosure-step-04-6.jpg)
-5. If shortened version of Grove Shield is used, place spacer inside of the frame at the level of Grove Shield.  
+5. If the shortened version of the Grove Shield is used, place the spacer inside the frame at the level of the Grove Shield.  
 ![Spacer installed inside the frame](/assets/images/enclosure-step-05.jpg)
-6. Attach side IO cover. Align it carefully with USB-C port of the XIAO. If necessary, lift (or press down more) XIAO board for better alignment. Cover should latch in place. If it doesn't fit - clip out some latches. If it doesn't sit firmly enough - secure with four M1.4x3 or M2x3 screws. Cover has a hole for charging LED of Grove Shield, to make it more easily readable - drop a tiny amount of transparent epoxy to act as a light guide.
-7. Attach second side cover. Secure with screws if necessary.  
+6. Attach the side IO cover. Align it carefully with the USB-C port of the XIAO. If necessary, lift (or press down more) the XIAO board for better alignment. The cover should latch in place. If it doesn't fit - clip out some latches. If it doesn't sit firmly enough - secure it with four M1.4x3 or M2x3 screws. The cover has a hole for the charging LED of the Grove Shield; to make it more easily readable, drop a tiny amount of transparent epoxy to act as a light guide.
+7. Attach the second side cover. Secure it with screws if necessary.  
 ![Side covers attached and secured with screws](/assets/images/enclosure-step-07.jpg)
-8. Attach the knob. Assembly is complete!  
+8. Attach the knob. The assembly is complete!  
 ![Finished build](/assets/images/enclosure-step-08.jpg)
-9. Slide power switch on the Grove Shield to the right position (when looking straight at the IO side) to power assembly on from the battery. Slide it to the left to power it off.  
+9. Slide the power switch on the Grove Shield to the right position (when looking straight at the IO side) to power the assembly on from the battery. Slide it to the left to power it off.  
 ![Power switch being in on/off positions](/assets/images/enclosure-step-09.jpg)
 
 Battery
@@ -247,19 +247,19 @@ Battery
 
 ### Charging
 
-Grove Shield charges battery via USB-C port of attached XIAO board whenever cable is connected. It is equipped with on-board charging status LED indicator (there is strategically placed hole in side panel of the enclosure to make LED visible). If power is connected when power switch is in Off position, charging LED blinks constantly, regardless of charge level. If power is connected when power switch is in On position, charging LED will be lit on when charging is in progress and will be turned off when battery is charged. I recommend charging with power switch in On position to easily keep track of a progress.
+The Grove Shield charges the battery via the USB-C port of the attached XIAO board whenever the cable is connected. It is equipped with an on-board charging status LED indicator (there is a strategically placed hole in the side panel of the enclosure to make the LED visible). If power is connected when the power switch is in the Off position, the charging LED blinks constantly, regardless of the charge level. If power is connected when the power switch is in the On position, the charging LED will light up while charging is in progress and will turn off when the battery is fully charged. I recommend charging with the power switch in the On position to easily keep track of the progress.
 
 ### Monitoring and calibration
 
-If you choose to implement a voltage divider for battery voltage measurement, it is possible to enable battery monitoring via Settings menu. Go to `SETTINGS`>`BATTERY` and switch Monitoring to "On". You can enable battery icon indicator to be displayed in top right corner of a screen and/or percentage value.
+If you choose to implement a voltage divider for battery voltage measurement, it is possible to enable battery monitoring via the Settings menu. Go to `SETTINGS`>`BATTERY` and switch Monitoring to "On". You can enable the battery icon indicator to be displayed in the top-right corner of the screen, and/or the percentage value.
 
 ![Battery settings page with enabled monitoring](/assets/images/battery-monitoring.jpg)
 
-Conversion of battery voltage reading to battery charge level is quite rough and imprecise. To make it slightly better it is recommended to calibrate it for your battery specifically. To do so, charge battery completely with power switch in On position, until charging LED goes out. Then disconnect power and note the Voltage reading in Battery Settings menu (reading is updated every 10s, so wait a little after disconnecting the cable to get more relevant value). This is your fully charged voltage level. Then wait until device starts spontaneously rebooting (it can take up to around 7-8 hours on 500mAh battery or up to around 15 hours on 1000mAh one). Note the Voltage reading in Battery Settings menu again. This is your discharged battery level. Open `constants.h` file in source code and adjust `BATTERY_MAX` and `BATTERY_MIN` values accordingly. Reupload modified sketch to your board.
+The conversion of the battery voltage reading to the battery charge level is quite rough and imprecise. To make it slightly better, it is recommended to calibrate it for your battery specifically. To do so, charge the battery completely with the power switch in the On position, until the charging LED goes out. Then disconnect the power and note the Voltage reading in the Battery Settings menu (the reading is updated every 10s, so wait a little after disconnecting the cable to get a more relevant value). This is your fully charged voltage level. Then wait until the device starts spontaneously rebooting (it can take up to around 7-8 hours on a 500mAh battery, or up to around 15 hours on a 1000mAh one). Note the Voltage reading in the Battery Settings menu again. This is your discharged battery level. Open the `constants.h` file in the source code and adjust the `BATTERY_MAX` and `BATTERY_MIN` values accordingly. Reupload the modified sketch to your board.
 
-It is possible that you would need multiple passes of this process to achieve better precision. However it won't be perfect in any case.
+It is possible that you would need multiple passes of this process to achieve better precision. However, it won't be perfect in any case.
 
-Additionally, keep in mind that voltage reading (and hence battery level) can be incorrect when external power is connected.
+Additionally, keep in mind that the voltage reading (and hence the battery level) can be incorrect when external power is connected.
 
 Disclaimer and a License
 ------------------------
